@@ -67,7 +67,7 @@ class TestSequenceAlignment(unittest.TestCase):
         alignment = SequenceAlignment(seq1="A", seq2="A", input_filepath="dummy.csv", strategy="global", gap_penalty=-2)
         alignment.alignments = {'A': {'A': 1}}
 
-        # run optimal alignment search
+        # Run optimal alignment search
         alignment._create_score_and_directional_matrices()
         solutions, score = alignment._traceback(1)
 
