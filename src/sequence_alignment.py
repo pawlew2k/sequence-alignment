@@ -15,17 +15,17 @@ from src.directional_cell import DirectionalCell
 
 @dataclass
 class SequenceAlignment:
-    """A class implementing the Needleman–Wunsch and Smith–Waterman algorithms to perform alignment of two DNA sequences.
+    """A class implementing the Needleman–Wunsch and Smith–Waterman algorithms to perform alignment of two DNA sequences
 
     Needleman–Wunsch == strategy='global'
     Smith–Waterman == strategy='local'
 
     Args:
-        seq1: The first nucleotide sequence.
-        seq2: The second nucleotide sequence.
-        input_filepath: File path to the substitution matrix in CSV format (see template substitution_matrix.csv).
-        strategy: Global or local alignment strategy.
-        gap_penalty: The value of the constant penalty for inserting a gap ('-').
+        seq1: The first nucleotide sequence
+        seq2: The second nucleotide sequence
+        input_filepath: File path to the substitution matrix in CSV format (see template substitution_matrix.csv)
+        strategy: Global or local alignment strategy
+        gap_penalty: The value of the constant penalty for inserting a gap ('-')
     """
 
     def __init__(self, seq1: str, seq2: str, input_filepath: str,
@@ -38,7 +38,7 @@ class SequenceAlignment:
         self.alignments = self._load_substitution_matrix(input_filepath)
 
     def find_optimal_alignments(self, n: int, output_filename: str):
-        """Returns n optimal alignments based on the best score."""
+        """Returns n optimal alignments based on the best score"""
         self._create_score_and_directional_matrices()
         solution_sequences, score = self._traceback(n)
         self._print_and_save_solutions(solution_sequences, score, n, output_filename)
@@ -130,7 +130,7 @@ class SequenceAlignment:
     def _print_and_save_solutions(self, solution_sequences: List[Tuple[str, str]], score: int, n: int, output_filename: str, output_dir='output'):
         # Print the solutions
         text = ''
-        for i in range(n):
+        for i in range(min(n, len(solution_sequences))):
             seq1, seq2 = solution_sequences[i]
             text += (f'{self.strategy.capitalize()} alignment no. {i + 1}:\n'
                      f'{seq1}\n'
