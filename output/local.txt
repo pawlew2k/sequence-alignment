@@ -1,0 +1,9 @@
+Local alignment no. 1:
+TATA
+TAT-
+Score: 13
+
+Local alignment no. 2:
+ATA-
+ATAT
+Score: 13
