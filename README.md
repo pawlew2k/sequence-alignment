@@ -94,24 +94,25 @@ Score: 13
 
 ```
 sequence-alignment/
-├── needleman_wunsch.py             # Main script for running Needleman–Wunsch algorithm via CLI
-├── smith_waterman.py               # Main script for running Smith–Waterman algorithm via CLI
+├── needleman_wunsch.py             # Main script for running the Needleman–Wunsch algorithm via CLI
+├── smith_waterman.py               # Main script for running the Smith–Waterman algorithm via CLI
 │
-├── substitution_matrix.csv         # Substitution scoring matrix used by algoritmhs
+├── substitution_matrix.csv         # Substitution scoring matrix used by the algorithms
 │
 ├── output/                         # Directory to save the results from the main scripts
-│   ├── global.txt               
+│   ├── global.txt
 │   ├── local.txt
 │
 ├── src/
-│   ├── directional_cell.py         # Defines cell with directions used in alignment matrices
+│   ├── directional_cell.py         # Defines a cell with directions used in alignment matrices
 │   ├── parser.py                   # Parses input parameters
 │   ├── sequence_alignment.py       # Implements Needleman-Wunsch and Smith-Waterman algorithms;
-│                                   # Includes alignment logic, score matrix creation, traceback and output handling       
+│                                   # Includes alignment logic, score matrix creation, traceback, and output handling       
 ├── tests/
 │   ├── unit_tests.py               # Unit tests
 │
 ├── task_content.pdf                # Project description and requirements 
 ├── requirements.txt                # Dependencies required to run the project
 └── README.md                       # Project description and usage instructions
+
 ```
