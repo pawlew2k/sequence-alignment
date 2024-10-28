@@ -26,7 +26,7 @@ git clone https://github.com/yourusername/sequence-alignment.git
 cd sequence-alignment
 ```
 
-1. **Install dependencies**:
+2. **Install dependencies**:
 ``` bash
 pip install -r requirements.txt
 ```
