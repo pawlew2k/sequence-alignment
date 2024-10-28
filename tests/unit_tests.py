@@ -35,7 +35,7 @@ class TestSequenceAlignment(unittest.TestCase):
                  ["G", -2, -1, 1, -1],
                  ["T", -1, -2, -1, 1]]
 
-    @patch('sequence_alignment.pd.read_csv')
+    @patch('src.sequence_alignment.pd.read_csv')
     def test_load_substitution_matrix(self, mock_read_csv):
         mock_read_csv.return_value = pd.DataFrame(self.mock_data)
         sequence_alignment = SequenceAlignment(seq1="ACGT", seq2="TGCA", input_filepath="dummy.csv", strategy="global", gap_penalty=-2)
@@ -45,7 +45,7 @@ class TestSequenceAlignment(unittest.TestCase):
         self.assertEqual(alignments['A']['T'], -1)
         self.assertEqual(alignments['G']['C'], -1)
 
-    @patch('sequence_alignment.pd.read_csv')
+    @patch('src.sequence_alignment.pd.read_csv')
     def test_create_score_and_directional_matrices(self, mock_read_csv):
         mock_read_csv.return_value = pd.DataFrame(self.mock_data)
 
@@ -60,7 +60,7 @@ class TestSequenceAlignment(unittest.TestCase):
         # Check directional matrix types
         self.assertIsInstance(alignment.directional_matrix[1, 1], DirectionalCell)
 
-    @patch('sequence_alignment.pd.read_csv')
+    @patch('src.sequence_alignment.pd.read_csv')
     def test_find_optimal_alignments_global(self, mock_read_csv):
         mock_read_csv.return_value = pd.DataFrame(self.mock_data)
 
